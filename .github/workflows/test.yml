@@ -12,8 +12,8 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - windows-latest
-          # OCaml 4.02 doesn't work easily on ARM macOS
+          # the ocaml fork doesn't work easily on windows and macOS
+          # - windows-latest
           # - macos-latest
         ocaml-compiler:
           - ocaml-variants.4.02.1+modular-implicits
