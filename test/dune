@@ -1,0 +1,4 @@
+(tests
+  (package integers)
+  (libraries integers)
+  (names implicits))

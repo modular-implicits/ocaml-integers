@@ -55,22 +55,22 @@ module type S = sig
 end
 (** Signed integer operations *)
 
-module Int : S with type t = int
+implicit module Int : S with type t = int
 (** Signed integer type and operations. *)
 
-module Int32 : S with type t = int32
+implicit module Int32 : S with type t = int32
 (** Signed 32-bit integer type and operations. *)
 
-module Int64 : S with type t = int64
+implicit module Int64 : S with type t = int64
 (** Signed 64-bit integer type and operations. *)
 
-module SInt : S
+implicit module SInt : S
 (** C's signed integer type and operations. *)
 
-module Long : S
+implicit module Long : S
 (** The signed long integer type and operations. *)
 
-module LLong : S
+implicit module LLong : S
 (** The signed long long integer type and operations. *)
 
 type sint = SInt.t

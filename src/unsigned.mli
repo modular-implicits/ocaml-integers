@@ -135,23 +135,23 @@ module type S = sig
 end
 (** Unsigned integer operations. *)
 
-module UChar : S with type t = private int
+implicit module UChar : S with type t = private int
 (** Unsigned char type and operations. *)
 
-module UInt8 : S with type t = private int
+implicit module UInt8 : S with type t = private int
 (** Unsigned 8-bit integer type and operations. *)
 
-module UInt16 : S with type t = private int
+implicit module UInt16 : S with type t = private int
 (** Unsigned 16-bit integer type and operations. *)
 
-module UInt32 : sig
+implicit module UInt32 : sig
   include S
   val of_int32 : int32 -> t
   val to_int32 : t -> int32
 end
 (** Unsigned 32-bit integer type and operations. *)
 
-module UInt64 : sig
+implicit module UInt64 : sig
   include S
   val of_int64 : int64 -> t
   val to_int64 : t -> int64
@@ -167,19 +167,19 @@ module UInt64 : sig
 end
 (** Unsigned 64-bit integer type and operations. *)
 
-module Size_t : S
+implicit module Size_t : S
 (** The size_t unsigned integer type and operations. *)
 
-module UShort : S
+implicit module UShort : S
 (** The unsigned short integer type and operations. *)
 
-module UInt : S
+implicit module UInt : S
 (** The unsigned int type and operations. *)
 
-module ULong : S
+implicit module ULong : S
 (** The unsigned long integer type and operations. *)
 
-module ULLong : S
+implicit module ULLong : S
 (** The unsigned long long integer type and operations. *)
 
 
