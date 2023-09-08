@@ -273,7 +273,7 @@ type uint = UInt.t
 type ulong = ULong.t
 type ullong = ULLong.t
 
-implicit module ImpNum(S : S) : Imp.Num.Num =
+implicit module ImpNum {S : S} : Imp.Data.Num =
 struct
   type t = S.t
   open S
