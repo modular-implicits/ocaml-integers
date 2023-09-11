@@ -29,8 +29,9 @@ jobs:
         uses: ocaml/setup-ocaml@v2
         with:
           ocaml-compiler: ${{ matrix.ocaml-compiler }}
-
-      - run: opam repo add modular-implicits git+https://github.com/modular-implicits/modular-implicits-opam.git
+          opam-repositories: |
+            default: https://github.com/ocaml/opam-repository.git
+            modular-implicits: https://github.com/modular-implicits/modular-implicits-opam.git
 
       - run: opam install . --deps-only --with-test
 
