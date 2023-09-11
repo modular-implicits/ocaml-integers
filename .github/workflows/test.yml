@@ -30,6 +30,8 @@ jobs:
         with:
           ocaml-compiler: ${{ matrix.ocaml-compiler }}
 
+      - run: opam repo add modular-implicits git+https://github.com/modular-implicits/modular-implicits-opam.git
+
       - run: opam install . --deps-only --with-test
 
       - run: opam exec -- dune build
