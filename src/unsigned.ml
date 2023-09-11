@@ -105,7 +105,7 @@ struct
 end
 
 
-module UInt8 : S with type t = private int =
+implicit module UInt8 : S with type t = private int =
 struct
   module B =
   struct
@@ -136,7 +136,7 @@ struct
 end
 
 
-module UInt16 : S with type t = private int =
+implicit module UInt16 : S with type t = private int =
 struct
   module B =
   struct
@@ -167,7 +167,7 @@ struct
 end
 
 
-module UInt32 : sig
+implicit module UInt32 : sig
   include S
   external of_int32 : int32 -> t = "integers_uint32_of_int32"
   external to_int32 : t -> int32 = "integers_int32_of_uint32"
@@ -203,7 +203,7 @@ struct
 end
 
 
-module UInt64 : sig
+implicit module UInt64 : sig
   include S
   external of_int64 : int64 -> t = "integers_uint64_of_int64"
   external to_int64 : t -> int64 = "integers_uint64_to_int64"
@@ -255,12 +255,12 @@ external uint_size : unit -> int = "integers_uint_size"
 external ulong_size : unit -> int = "integers_ulong_size"
 external ulonglong_size : unit -> int = "integers_ulonglong_size"
 
-module Size_t : S = (val of_byte_size (size_t_size ()))
-module UChar = UInt8
-module UShort : S = (val of_byte_size (ushort_size ()))
-module UInt : S = (val of_byte_size (uint_size ()))
-module ULong : S = (val of_byte_size (ulong_size ()))
-module ULLong : S = (val of_byte_size (ulonglong_size ()))
+implicit module Size_t : S = (val of_byte_size (size_t_size ()))
+implicit module UChar = UInt8
+implicit module UShort : S = (val of_byte_size (ushort_size ()))
+implicit module UInt : S = (val of_byte_size (uint_size ()))
+implicit module ULong : S = (val of_byte_size (ulong_size ()))
+implicit module ULLong : S = (val of_byte_size (ulonglong_size ()))
 
 type uchar = UChar.t
 type uint8 = UInt8.t

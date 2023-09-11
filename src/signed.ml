@@ -63,7 +63,7 @@ struct
   let (asr) = shift_right
 end
 
-module Int =
+implicit module Int =
 struct
   module Basics =
   struct
@@ -107,7 +107,7 @@ struct
   let pp fmt n = Format.fprintf fmt "%d" n
 end
 
-module Int32 = 
+implicit module Int32 =
 struct
   (* Int32.equal was introduced in OCaml 4.03.0 *)
   let equal (x:int32) (y:int32) = x = y [@@ocaml.warning "-32"]
@@ -122,7 +122,7 @@ struct
   let pp fmt n = Format.fprintf fmt "%ld" n
 end
 
-module Int64 = 
+implicit module Int64 =
 struct
   (* Int64.equal was introduced in OCaml 4.03.0 *)
   let equal (x:int64) (y:int64) = x = y [@@ocaml.warning "-32"]
@@ -145,9 +145,9 @@ let of_byte_size : int -> (module S) = function
   | 8 -> (module Int64)
   | _ -> invalid_arg "Signed.of_byte_size"
 
-module SInt = (val of_byte_size (int_size ()))
-module Long = (val of_byte_size (long_size ()))
-module LLong = (val of_byte_size (llong_size ()))
+implicit module SInt = (val of_byte_size (int_size ()))
+implicit module Long = (val of_byte_size (long_size ()))
+implicit module LLong = (val of_byte_size (llong_size ()))
 
 type sint = SInt.t
 type long = Long.t
